@@ -1,8 +1,20 @@
 const express = require("express")
+const userRoute = require("./routes/users.js")
 const app = express()
 const port = 3000
 
-app.set("view engine", "ejs")
+app.use("/", userRoute)
+
+app.post("/", userRoute)
+
+app.listen(port, () => {
+    console.log(` server menyala di port ${port}`)
+})
+
+/* app.set("view engine", "ejs")
+
+// patern express
+// app.method(path, handler)
 
 //logging
 const logger = (req, res, next) => {
@@ -24,12 +36,14 @@ app.get("/greet", (req, res) => {
 })
 
 app.get("/products", (req, res) => {
-    res.json([
-        "Apple",
-        "Samsung",
-        "Readmi"
-    ])
-    //console.log("endpoint /products")
+    res.json({
+        path: req.path,
+        hostname: req.hostname,
+        security: req.secure
+})
+
+
+
 })
 
 app.get("/orders", (req, res) => {
@@ -46,9 +60,8 @@ app.get("/orders", (req, res) => {
         }
     ])
     //console.log("endpoint /orders")
-})
+}) */
 
-app.listen(port, () => {
-    console.log(` server menyala di port ${port}`)
-})
+
+
 
