@@ -1,10 +1,10 @@
-function testFunc(p,l) {
+/* function testFunc(p, l) {
     let luasPersegi = p * l
     let msg = `luas persegi ini adalah: ${luasPersegi} m2`
     return msg
 }
 
-console.log(testFunc(2,3))
+console.log(testFunc(2, 3))
 
 // sesi comparison dan gerbang logika 16/10/23
 // Comparison
@@ -42,8 +42,60 @@ if (!logicalNot) {
 const inputPass = process.argv[2]
 
 // looping
-let arr = [1,2,3,4,54,56,6]
-for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-    console.log(element)
+const isOdd = function (value) {
+    if (value % 2 == 0) {
+        for (let i = 0; i < jumlahLantai; i++) {
+            const element = arr[i];
+            console.log(`Mengambil kain pel dilantai:${i}`)
+            console.log(`Mencuci kain pel dilantai:${i}`)
+            console.log(`Memeras kain pel dilantai:${i}`)
+            console.log(`Mengepel di seluruh bagian lantai dilantai:${i}`)
+            console.log(`Mengulang tahap 2 sampai 4 di setiap lantai sampai ke lantai dilantai:${i}`)
+        }
+        return 
+    }
 }
+
+// looping oddNumb
+let jumlahLantai = 10
+/* for (let i = 1; i <= jumlahLantai; i++) {
+    if (i % 2 !== 0) {
+        console.log(`Mengambil kain pel dilantai:${i}`)
+        console.log(`Mencuci kain pel dilantai:${i}`)
+        console.log(`Memeras kain pel dilantai:${i}`)
+        //console.log(`Mengepel di seluruh bagian lantai dilantai:${i}`)
+        //console.log(`Mengulang tahap 2 sampai 4 di setiap lantai sampai ke lantai dilantai:${i}`)
+    }
+} */
+
+let jumlahLantai = 10
+let patokan = 1;
+let loopCtrl = true;
+
+// looping dengan while
+/* while (loopCtrl) {
+    //check evenNumber
+    if (patokan % 2 == 0) {
+        console.log(`Mengambil kain pel dilantai: ${patokan}`)
+        console.log(`Mencuci kain pel dilantai: ${patokan}`)
+        console.log(`Memeras kain pel dilantai: ${patokan}`)
+        console.log()
+    } else if (patokan > jumlahLantai) { // Check apakah sudah memperoses semua lantai
+        loopCtrl = false // Set loopCtrl ke false untuk stop looping
+    }
+    patokan++
+} */
+
+// iterasi menggunakan do while -> do dijalankan pertamakali tanpa true/false
+do {
+    // Check jika patokan lebih besar dari jumlahLantai
+    if (patokan > jumlahLantai) {
+        break // Exit the loop
+    } else if (patokan % 2 === 0) {
+        console.log(`Mengepel dilantai: ${patokan}`)
+        console.log();
+    }  else {
+        console.log(`Menyapu dilantai: ${patokan}`)
+    }
+    patokan++;
+} while (loopCtrl);
