@@ -1,11 +1,13 @@
 const express = require("express")
 const userRoute = require("./routes/users.js")
+const middlewareLogReq = require("./middleware/logs.js")
 const app = express()
 const port = 3000
 
-app.use("/", userRoute)
+app.use(middlewareLogReq) //middleware custom
+app.use(express.json()) // midleware bawaan express untuk json body
 
-app.post("/", userRoute)
+app.use("/users", userRoute)
 
 app.listen(port, () => {
     console.log(` server menyala di port ${port}`)

@@ -87,7 +87,7 @@ let loopCtrl = true;
 } */
 
 // iterasi menggunakan do while -> do dijalankan pertamakali tanpa true/false
-do {
+/* do {
     // Check jika patokan lebih besar dari jumlahLantai
     if (patokan > jumlahLantai) {
         break // Exit the loop
@@ -98,4 +98,101 @@ do {
         console.log(`Menyapu dilantai: ${patokan}`)
     }
     patokan++;
-} while (loopCtrl);
+} while (loopCtrl); */
+
+// membuat object
+/* const objPerson = {
+    name: "ramadhika",
+    age: 23,
+    family: {
+        ayah: "naruto",
+        ibu: "kushina",
+        adik: ["himawari", "buruto"]
+    }
+}
+
+console.log(objPerson.family.adik[0]) */
+
+// object Buku
+const book = {
+    title: "Binar Book",
+    tags: ["relegion", "psikologi", "nonfiksi"],
+    price: 70000
+}
+console.log(book)
+book.title = "Dhika"
+console.log(book)
+
+// Constructor function(class object) -> Bisa disebut classnya JS
+function BookName(title, tags, price) {
+    this.title = title
+    this.tags = tags
+    this.price = price
+}
+const book2 = new BookName(
+    "Sejarah Peradaban Romawi XXI", 
+    ["Sejarah", "Nonfiksi", "petualangan"], 
+    50000
+    )
+// print
+console.log(book2)
+
+
+//Object Constructor
+const book1 = new Object()
+book1.title = "Sejarah indonesia merdeka"
+book1.tags = ["relegion", "sejarah", "nonfiksi"]
+book1.price = 180000
+// print
+console.log(book1)
+console.log("========================================================")
+
+
+// ambil key->value
+const buku1 = book2.price
+console.log(`menggunakan dot notation: ${buku1}`)
+const buku2 = book2.tags[0]
+console.log(`menggunakan bracket notation: ${buku2}`)
+const { title } = book2
+console.log(`menggunakan desctructor: ${title}`)
+console.log("========================================================")
+
+// for in -> loop
+console.log("menggunakan for in")
+for (const key in book2){
+    console.log(key)
+    console.log(book2[key])
+}
+console.log("========================================================")
+
+// for of Object entry
+console.log("menggunakan for of")
+for (const [key, value] of Object.entries(book2)) {
+    console.log(key, value)
+}
+console.log("========================================================")
+
+// for each
+console.log("menggunakan for each")
+Object.keys(book2).forEach((key) => {
+    console.log(key, book2[key])
+})
+
+
+
+
+
+
+/* class Dino {
+    constructor(name) {
+      this.name = name;
+    }
+     
+    weight = 100;
+    sayHi() {
+      console.log(`Hi my name is ${this.name}`);
+    }
+  }
+
+console.log(typeof(book))
+console.log(typeof(Dino)) */
