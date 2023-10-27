@@ -68,6 +68,8 @@ let jumlahLantai = 10
     }
 } */
 
+const { response } = require("express");
+
 let jumlahLantai = 10
 let patokan = 1;
 let loopCtrl = true;
@@ -196,3 +198,58 @@ Object.keys(book2).forEach((key) => {
 
 console.log(typeof(book))
 console.log(typeof(Dino)) */
+console.log("===================================================")
+console.log("===================================================")
+
+// asyc
+console.log("setInterval mulai")
+const myInterval = setInterval(myTimer, 1000)
+let i = 1
+function myTimer() {
+  console.log(i)
+  i++
+}
+
+setTimeout(() => {
+    console.log("setInterval berhenti")
+    clearInterval(myInterval)
+},6000)
+
+//Promis
+const apiUrl = "https://doa-doa-api-ahmadramadhan.fly.dev/api/1";
+/* const promiseFetchDoa = fetch(apiUrl);
+promiseFetchDoa
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  }); */
+
+  const promiseFetchData = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({
+          message: "Fetch Success",
+          data: {
+            nama: "Ramadhika",
+            hobi: ["mancing","maraton","bola"]
+          }
+        });
+      }, 4000);
+    });
+  };
+  
+  promiseFetchData()
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
