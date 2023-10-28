@@ -116,7 +116,7 @@ let loopCtrl = true;
 console.log(objPerson.family.adik[0]) */
 
 // object Buku
-const book = {
+/* const book = {
     title: "Binar Book",
     tags: ["relegion", "psikologi", "nonfiksi"],
     price: 70000
@@ -178,7 +178,7 @@ console.log("========================================================")
 console.log("menggunakan for each")
 Object.keys(book2).forEach((key) => {
     console.log(key, book2[key])
-})
+}) */
 
 
 
@@ -210,29 +210,41 @@ function myTimer() {
   i++
 }
 
-setTimeout(() => {
+/* setTimeout(() => {
     console.log("setInterval berhenti")
     clearInterval(myInterval)
-},6000)
+},6000) */
 
 //Promis
-const apiUrl = "https://doa-doa-api-ahmadramadhan.fly.dev/api/1";
-/* const promiseFetchDoa = fetch(apiUrl);
-promiseFetchDoa
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
+function fetchDataFromApi(apiUrl) {
+  return new Promise((resolve, reject) => {
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+const apiUrl = "https://doa-doa-api-ahmadramadhan.fly.dev/api/doa/v1/random";
+
+fetchDataFromApi(apiUrl)
+  .then(data => {
     console.log(data);
   })
-  .catch((error) => {
+  .catch(error => {
     console.error("Error:", error);
-  }); */
+  });
 
-  const promiseFetchData = () => {
+/*   const promiseFetchData = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({
@@ -252,4 +264,4 @@ promiseFetchDoa
     })
     .catch((error) => {
       console.error(error);
-    });
+    }); */
